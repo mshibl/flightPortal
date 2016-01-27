@@ -1,18 +1,30 @@
 if (Meteor.isClient) {
-  HTTP.call( 'GET', 'http://jsonplaceholder.typicode.com/posts', {}, function( error, response ) {
+  HTTP.call( 'POST', 'https://www.googleapis.com/qpxExpress/v1/trips/search',{
+    data: {
+      "request": {
+        "slice": [
+          {
+            "origin": "SFO",
+            "destination": "LAX",
+            "date": "2016-01-26"
+          }
+        ],
+        "passengers": {
+          "adultCount": 1,
+          "infantInLapCount": 0,
+          "infantInSeatCount": 0,
+          "childCount": 0,
+          "seniorCount": 0
+        },
+        "solutions": 20,
+        "refundable": false
+      }
+    }
+  }, function( error, response ) {
     if ( error ) {
       console.log( error );
     } else {
       console.log( response );
-      /*
-       This will return the HTTP response object that looks something like this:
-       {
-         content: "String of content...",
-         data: Array[100], <-- Our actual data lives here. 
-         headers: {  Object containing HTTP response headers }
-         statusCode: 200
-       }
-      */
     }
   });
 
