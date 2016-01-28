@@ -19,7 +19,7 @@ if (Meteor.isClient) {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 20,
+        "solutions": 5,
         "refundable": false
       }
     }
