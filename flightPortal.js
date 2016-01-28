@@ -1,12 +1,13 @@
+apiKey = 'AIzaSyB463ZZB0c6TzyRMULH5xZ4SGRRmMUA5hw'
 if (Meteor.isClient) {
-  HTTP.call( 'POST', 'https://www.googleapis.com/qpxExpress/v1/trips/search',{
+  HTTP.call( 'POST', 'https://www.googleapis.com/qpxExpress/v1/trips/search?key='+apiKey,{
     data: {
       "request": {
         "slice": [
           {
             "origin": "SFO",
             "destination": "LAX",
-            "date": "2016-01-26"
+            "date": "2016-01-29"
           }
         ],
         "passengers": {
