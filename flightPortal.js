@@ -1,5 +1,6 @@
 var apiKey = 'AIzaSyB463ZZB0c6TzyRMULH5xZ4SGRRmMUA5hw';
 allFlights = {};
+Session.setDefault('searching',false);
 
 if (Meteor.isClient) {
   HTTP.call( 'POST', 'https://www.googleapis.com/qpxExpress/v1/trips/search?key='+apiKey,{
@@ -34,6 +35,9 @@ if (Meteor.isClient) {
 
   Template.body.helpers({
     flights : [allFlights.tripOption]
+  },
+    searching : {
+      return Session.get('searching')
   });
 }
 
