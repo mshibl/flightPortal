@@ -1,5 +1,6 @@
 var apiKey = 'AIzaSyB463ZZB0c6TzyRMULH5xZ4SGRRmMUA5hw';
 // allFlights = {};
+results = [];
 
 if (Meteor.isClient) {
   Session.set('searching',true);
@@ -36,7 +37,7 @@ if (Meteor.isClient) {
           carrier: trip.slice[0].segment[0].flight.carrier,
           number: trip.slice[0].segment[0].flight.number
         }
-        console.log(flight);
+        results.push(flight);
         Session.set('searching',false);
       })
     }
@@ -50,6 +51,7 @@ if (Meteor.isClient) {
   // });
 
   Template.body.helpers({
+    results: results,
     searching: function(){
       return Session.get('searching');
     }

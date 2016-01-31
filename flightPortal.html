@@ -9,9 +9,16 @@
   {{#if searching}}
     <p>Searching...</p>
   {{else}}
+  	{{#each results}}
+  		{{> flight}}
+  	{{/each}}
   {{/if}}
 </body>
 
 <template name="flight">
-	<li>{{saleTotal}}</li>
+	<tr>
+		<td>{{carrier}} | </td>
+		<td> {{duration}} | </td>
+		<td> {{price}}</td>		
+	</tr>
 </template>
