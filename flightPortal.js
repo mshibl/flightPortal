@@ -1,10 +1,10 @@
 var apiKey = 'AIzaSyB463ZZB0c6TzyRMULH5xZ4SGRRmMUA5hw';
-// allFlights = {};
+var requestUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search';
 results = [];
 
 if (Meteor.isClient) {
   Session.set('searching',true);
-  HTTP.call( 'POST', 'https://www.googleapis.com/qpxExpress/v1/trips/search?key='+apiKey,{
+  HTTP.call( 'POST', requestUrl+'?key='+apiKey,{
     data: {
       "request": {
         "slice": [
@@ -21,7 +21,7 @@ if (Meteor.isClient) {
           "childCount": 0,
           "seniorCount": 0
         },
-        "solutions": 5,
+        "solutions": 20,
         "refundable": false
       }
     }
