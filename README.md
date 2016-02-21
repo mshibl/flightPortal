@@ -1,2 +1,2 @@
 # flightPortal
-A flight booking web application built using meteor
+A flight booking web application
